@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+{% block content %}
+    <div class="mb-4">
+        <h2>{{ program.code }} - {{ program.name }}</h2>
+        <span class="badge bg-secondary mb-3">Кафедра: {{ program.department.name }}</span>
+    </div>
+    
+    <h4>Опис спеціальності</h4>
+    <p>{{ program.description|linebreaks }}</p>
+    
+    <h4 class="mt-4">Список дисциплін</h4>
+    <p>{{ program.subjects|linebreaks }}</p>
+    
+    <div class="alert alert-info mt-4">
+        <strong>Координатор набору:</strong> {{ program.coordinator_name }} <br>
+        <strong>Контакти:</strong> {{ program.coordinator_contact }}
+    </div>
+    
+    <a href="{% url 'program_list' %}" class="btn btn-outline-primary">&larr; Назад до списку</a>
+{% endblock %}

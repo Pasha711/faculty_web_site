@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+{% block content %}
+    {% if page_data %}
+        <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="container-fluid py-5">
+                <h1 class="display-5 fw-bold">{{ page_data.title }}</h1>
+                <p class="col-md-8 fs-4">{{ page_data.description|linebreaks }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Основна інформація</h3>
+                <p>{{ page_data.main_info|linebreaks }}</p>
+            </div>
+            <div class="col-md-6">
+                <h3>Контакти</h3>
+                <p>{{ page_data.contacts|linebreaks }}</p>
+            </div>
+        </div>
+    {% else %}
+        <p>Заповніть інформацію в адмін-панелі.</p>
+    {% endif %}
+{% endblock %}
