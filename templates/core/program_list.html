@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+{% block content %}
+    <h2 class="mb-4">Спеціальності</h2>
+    <div class="row">
+        {% for program in programs %}
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="{% url 'program_detail' program.id %}" class="text-decoration-none">{{ program.code }} - {{ program.name }}</a>
+                    </h5>
+                    <p class="card-text text-muted">{{ program.description|truncatewords:50 }}</p>
+                    <hr>
+                    <p class="mb-1"><strong>Координатор:</strong> {{ program.coordinator_name }}</p>
+                    <p class="mb-0"><strong>Контакти:</strong> {{ program.coordinator_contact }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
